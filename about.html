@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.convform.css">
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet" />
     <!-- Bootstrap CSS / Color Scheme -->
     <link rel="stylesheet" href="css/default.css" id="theme-color" />
@@ -27,6 +28,48 @@
 </head>
 
 <body>
+    <!-- chatbot-->
+    <div class='chat_icon'>
+        <i class="fa fa-comments" aria-hidden="true"></i>
+    </div>
+    
+    <div class="chat_box">
+        <div class="conv-form-wrapper">
+            <form action="" method="GET" class="hidden">
+                <select data-conv-question="Hello! How can I help you" name="category">
+                    <option value="Issue">Having issues or queries?</option>
+                    <option value="LoginIssue">problems signing in?</option>
+                </select>
+    
+                <div data-conv-fork="category">
+                    <div data-conv-case="Issue">
+                        <input type="text" name="Issueq"
+                            data-conv-question="You can contact the developers at their social media handles or you can email your issue. Replies won't be immediate, so have some patience.">
+                    </div>
+                    <div data-conv-case="LoginIssue" data-conv-fork="first-question2">
+                        <input type="text" name="LoginIssueq"
+                            data-conv-question="Change your password by clicking on the forgot password. If having issues with your email, try to change password with your security question.">
+                    </div>
+                </div>
+    
+                <select data-conv-question="Are the queries clear?" name="confirmation">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+    
+                <div data-conv-fork="confirmation">
+                    <div data-conv-case="No">
+                        <input type="text" name="Doubt"
+                            data-conv-question="Get further help regarding your queries. Mail shoumiknath1@gmail.com">
+                    </div>
+                    <div data-conv-case="Yes">
+                        <input type="text" name="Doubt" data-conv-question="Have a great day!!">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- chatbot end-->
     <!--navigation-->
     <section class="smart-scroll">
         <div class="container-fluid">
@@ -215,6 +258,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.7.3/feather.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/jquery.convform.js"></script>
 </body>
 
 </html>
